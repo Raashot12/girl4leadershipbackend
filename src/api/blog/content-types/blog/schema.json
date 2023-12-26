@@ -33,7 +33,6 @@
     },
     "Summary": {
       "type": "text",
-      "maxLength": 88,
       "required": true
     },
     "IsFeatured": {
@@ -76,6 +75,9 @@
         "images",
         "videos"
       ]
+    },
+    "Popular": {
+      "type": "boolean"
     }
   }
 }

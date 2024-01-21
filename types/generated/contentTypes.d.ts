@@ -803,12 +803,12 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    Category: Attribute.Enumeration<
+    category: Attribute.Enumeration<
       [
         'Business',
         'Travel',
@@ -820,27 +820,57 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       ]
     > &
       Attribute.Required;
-    Summary: Attribute.Text & Attribute.Required;
-    IsFeatured: Attribute.Boolean &
+    summary: Attribute.Text & Attribute.Required;
+    isFeatured: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    Thumbnail: Attribute.Media & Attribute.Required;
-    TimeStamp: Attribute.DateTime & Attribute.Required;
+    thumbnail: Attribute.Media & Attribute.Required;
+    timeStamp: Attribute.DateTime & Attribute.Required;
     author: Attribute.Relation<
       'api::blog.blog',
       'manyToOne',
       'api::author.author'
     >;
-    Content: Attribute.Blocks & Attribute.Required;
-    slug: Attribute.UID<'api::blog.blog', 'Title'>;
-    FeaturedImage: Attribute.Media;
-    Popular: Attribute.Boolean;
+    content: Attribute.Blocks & Attribute.Required;
+    slug: Attribute.UID;
+    featuredImage: Attribute.Media;
+    popular: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCommerceCommerce extends Schema.CollectionType {
+  collectionName: 'commerces';
+  info: {
+    singularName: 'commerce';
+    pluralName: 'commerces';
+    displayName: 'Commerce';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::commerce.commerce',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::commerce.commerce',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -917,6 +947,7 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::author.author': ApiAuthorAuthor;
       'api::blog.blog': ApiBlogBlog;
+      'api::commerce.commerce': ApiCommerceCommerce;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::home.home': ApiHomeHome;
     }

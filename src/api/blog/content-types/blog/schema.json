@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
       "unique": false,
       "maxLength": 255
     },
-    "Category": {
+    "category": {
       "type": "enumeration",
       "enum": [
         "Business",
@@ -31,16 +31,16 @@
       ],
       "required": true
     },
-    "Summary": {
+    "summary": {
       "type": "text",
       "required": true
     },
-    "IsFeatured": {
+    "isFeatured": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "Thumbnail": {
+    "thumbnail": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -48,7 +48,7 @@
         "images"
       ]
     },
-    "TimeStamp": {
+    "timeStamp": {
       "type": "datetime",
       "required": true
     },
@@ -58,16 +58,15 @@
       "target": "api::author.author",
       "inversedBy": "blogs"
     },
-    "Content": {
+    "content": {
       "type": "blocks",
       "required": true
     },
     "slug": {
       "type": "uid",
-      "required": false,
-      "targetField": "Title"
+      "required": false
     },
-    "FeaturedImage": {
+    "featuredImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -76,7 +75,7 @@
         "videos"
       ]
     },
-    "Popular": {
+    "popular": {
       "type": "boolean"
     }
   }

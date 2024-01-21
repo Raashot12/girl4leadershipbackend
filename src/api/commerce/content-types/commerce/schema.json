@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commerces",
+  "info": {
+    "singularName": "commerce",
+    "pluralName": "commerces",
+    "displayName": "Commerce"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
